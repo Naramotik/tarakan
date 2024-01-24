@@ -23,9 +23,15 @@ public class Discipline {
     @Column(name = "title")
     String title;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "discipline")
     List<Test> tests;
+
+
+    @ManyToMany
+    @JoinTable(name = "discipline_client",
+            joinColumns = @JoinColumn(name = "discipline_id"),
+            inverseJoinColumns = @JoinColumn(name = "client_id"))
+    List<Client> clients;
 
     @Override
     public String toString() {

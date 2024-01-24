@@ -30,5 +30,8 @@ public class Client {
     List<Test> tests;
     @JsonIgnore
     @ManyToMany(mappedBy = "clients")
+    List<Discipline> disciplines;
+    @JsonIgnore
+    @ManyToMany(mappedBy = "clients")
     List<Answer> answers;
 }

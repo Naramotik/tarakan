@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.Client;
 import com.example.demo.model.Discipline;
 import com.example.demo.service.DisciplineService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,13 @@ public class DisciplineController {
     public List<Discipline> allDisc(){
         return disciplineService.findAll();
     }
-
+    @PostMapping("/{disc_title}/{email}")
+    public Discipline addClientToDisc(@PathVariable String disc_title,
+                                      @PathVariable String email){
+        return disciplineService.addClient(disc_title, email);
+    }
+    @GetMapping("/{email}")
+    public List<Discipline> getMyDisc(@PathVariable String email){
+        return disciplineService.findMyDisc(email);
+    }
 }

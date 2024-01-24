@@ -34,6 +34,7 @@ public class Test {
             inverseJoinColumns = @JoinColumn(name = "client_id"))
     List<Client> clients;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "discipline_id")
     Discipline discipline;
