@@ -37,4 +37,9 @@ public class TestController {
         return testService.passTest(test_name, email);
     }
 
+    @GetMapping("/passedOrNot/{test_name}/{email}")
+    public String passedOrNot(@PathVariable("test_name") String test_name,
+                              @PathVariable("email") String email){
+        return testService.passedOrNot(test_name, email);
+    }
 }

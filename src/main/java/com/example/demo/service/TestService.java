@@ -64,4 +64,12 @@ public class TestService {
         test.setClients(clients);
         return testRepository.save(test);
     }
+
+    public String passedOrNot(String test_name, String email) {
+        Test test = testRepository.findByTitle(test_name);
+        Client client = clientRepository.findByEmail(email);
+        if (test.getClients().contains(client))
+            return "true";
+        else return "false";
+    }
 }
