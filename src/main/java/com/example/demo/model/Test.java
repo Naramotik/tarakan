@@ -23,6 +23,9 @@ public class Test {
     @Column(name = "title")
     String title;
 
+    @Column(name = "visible")
+    Boolean visible;
+
     @JsonIgnore
     @OneToMany(mappedBy = "test")
     List<Question> questions;
@@ -38,6 +41,8 @@ public class Test {
     @ManyToOne
     @JoinColumn(name = "discipline_id")
     Discipline discipline;
+
+
 
 
 
